@@ -22,10 +22,10 @@ class CustomeContainer extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(
         maxWidth:
-            MediaQuery.of(context).size.width * 0.7, // أقصى عرض 70% من الشاشة
+            MediaQuery.of(context).size.width * 0.7, 
       ),
       padding: EdgeInsets.all(16),
-      margin: EdgeInsets.only(top: 16, left: 16,right: 16),
+      margin: EdgeInsets.only(top: 16),
       decoration: BoxDecoration(
         color: color,
         borderRadius: borderRadius
