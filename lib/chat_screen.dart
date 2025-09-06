@@ -1,5 +1,5 @@
 import 'package:assignment_whats_app/custome-container.dart';
-
+import 'package:assignment_whats_app/custome_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -69,68 +69,97 @@ class ChatScreen extends StatelessWidget {
           SizedBox(width: 22),
         ],
       ),
-      body: Container(
-        width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height,
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height,
 
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/back_ground.png'),
-            fit: BoxFit.cover,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/back_ground.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomeContainer(content: Text('Hello !', style: textStyle), isSend: true,),
-
-            Row(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
                 CustomeContainer(
-                   isSend: false,
                   content: Text('Hello !', style: textStyle),
+                  isSend: true,
                 ),
-              ],
-            ),
-            CustomeContainer(
-                 isSend: true,
-              content: Text(
-                "Hey! Have you ever thought\nabout how random moments\ncan sometimes turn into the best memories? It’s like the\n universe loves to surprise us\n when we least expect it!",
-                style: textStyle,
-              ),
-            ),
-            CustomeContainer(
-                isSend: true,
-              content: Column(
-                children: [
-                  Text(
-                    "what a Great Content Tp learn Flutter",
-                    style: textStyle,
-                  ),
-                  Image.asset('assets/route.png'),
-                ],
-              ),
-            ),
 
-            Row(
-              children: [
-                Spacer(),
+                Row(
+                  children: [
+                    Spacer(),
+                    CustomeContainer(
+                      isSend: false,
+                      content: Text('Hello !', style: textStyle),
+                    ),
+                  ],
+                ),
                 CustomeContainer(
-                     isSend: false,
+                  isSend: true,
                   content: Text(
-                    'what a Great Content Tp learn Flutter',
+                    "Hey! Have you ever thought\nabout how random moments\ncan sometimes turn into the best memories? It’s like the\n universe loves to surprise us\n when we least expect it!",
                     style: textStyle,
                   ),
                 ),
+                CustomeContainer(
+                  isSend: true,
+                  content: Column(
+                    children: [
+                      Text(
+                        "what a Great Content Tp learn Flutter",
+                        style: textStyle,
+                      ),
+                      Image.asset('assets/route.png'),
+                    ],
+                  ),
+                ),
+
+                Row(
+                  children: [
+                    Spacer(),
+                    CustomeContainer(
+                      isSend: false,
+                      content: Text(
+                        'what a Great Content Tp learn Flutter',
+                        style: textStyle,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 71,),
+                Row(
+                  children: [
+                    CustomeTextField(),
+                    Expanded(
+                      flex: 2,
+                      child: ElevatedButton(
+                        onPressed: () {
+                         
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff168C4B),
+                          shape: CircleBorder(),
+                          padding: EdgeInsets.all(12), 
+                          minimumSize: Size(48, 48),
+                        ),
+                        child: Image.asset(
+                          'assets/Mic.png',
+                          width: 24,
+                          height: 24,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-            Row(
-              children: [
-                // TextField(),
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );
